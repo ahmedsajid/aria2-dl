@@ -15,5 +15,4 @@ Run aria2c with rpc enabled
 
 Add URL to aria2c via RPC
 
-```./addurl.py http://localhost:6800/rpc http://video.url
-```
+```./addurl.py http://localhost:6800/rpc http://video.url ```
