@@ -6,6 +6,7 @@
 import youtube_dl
 import xmlrpclib
 import sys
+import json
 
 ydl_opts = {
         'format': 'bestvideo+bestaudio/best',
@@ -24,10 +25,13 @@ if info.get('requested_formats') is not None:
     video_ext = video_format['ext']
     audio_url = audio_format['url']
     audio_ext = audio_format['ext']
-else:
+elif info.get('entries') is not None:
     video_entry = info['entries']
     video_url = video_entry[0]['url']
     video_ext = video_entry[0]['ext']
+else:
+    video_url = info['url']
+    video_ext = info['ext']
 
 s = xmlrpclib.ServerProxy(sys.argv[1])
 s.aria2.addUri([video_url],dict(out=title + "." + video_ext))
