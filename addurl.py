@@ -1,10 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # ./addurl.py http://aria2:6800/rpc http://video.url
 #
 
 import youtube_dl
-import xmlrpclib
+from xmlrpc import client
 import sys
 import json
 
@@ -33,5 +33,5 @@ else:
     video_url = info['url']
     video_ext = info['ext']
 
-s = xmlrpclib.ServerProxy(sys.argv[1])
+s = client.ServerProxy(sys.argv[1])
 s.aria2.addUri([video_url],dict(out=title + "." + video_ext))
