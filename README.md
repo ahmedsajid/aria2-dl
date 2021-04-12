@@ -3,7 +3,7 @@ youtube-dl + aria2
 
 ## Requirement: 
 
-- Python 2.7 
+- Python 3
 - youtube-dl >= 2017.10.0
 
 
