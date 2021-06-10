@@ -6,7 +6,6 @@
 import youtube_dl
 from xmlrpc import client
 import sys
-import json
 
 ydl_opts = {
         'format': 'bestvideo+bestaudio/best',
@@ -34,4 +33,4 @@ else:
     video_ext = info['ext']
 
 s = client.ServerProxy(sys.argv[1])
-s.aria2.addUri([video_url],dict(out=title + "." + video_ext))
+s.aria2.addUri([video_url], dict(out=title + "." + video_ext))
